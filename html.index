@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Solopreneur Toolkit™ — First Edition · July 16, 2026</title>
+<meta name="description" content="Learn to build with AI and get paid for it. Infographics. Landing pages. Portfolios. Brand assets. Built live. Sold to clients. Starting July 16.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0C090A;--deep:#131017;--panel:#1B1620;--surface:#231E2A;
+  --red:#C8102E;--red2:#E01535;
+  --gold:#C4923A;--gold2:#D4A44A;--gold3:#E8C060;
+  --cream:#F0EAE2;--soft:rgba(240,234,226,.62);--faint:rgba(240,234,226,.2);
+  --border:rgba(240,234,226,.07);--border-gold:rgba(196,146,58,.22);--border-red:rgba(200,16,46,.22);
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --body:'DM Sans',system-ui,sans-serif;
+  --mono:'Space Mono',monospace;
+  --ease:cubic-bezier(.4,0,.2,1);
+}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{background:var(--ink);color:var(--cream);font-family:var(--body);font-weight:300;overflow-x:hidden;line-height:1.65}
+
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;opacity:.15;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.spine{position:fixed;top:0;left:0;width:3px;height:100%;z-index:500;background:linear-gradient(180deg,var(--red) 0%,var(--gold) 55%,transparent 100%)}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--ink)}::-webkit-scrollbar-thumb{background:var(--red)}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:400;height:62px;
+  padding:0 2.5rem 0 calc(3px + 2.5rem);
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(12,9,10,.95);backdrop-filter:blur(28px);
+  border-bottom:1px solid var(--border);transition:border-color .3s}
+.nav.scrolled{border-bottom-color:var(--border-red)}
+.nav-brand{font-family:var(--mono);font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2)}
+.nav-right{display:flex;align-items:center;gap:1.5rem}
+.nav-ticker{font-family:var(--mono);font-size:.44rem;letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
+.nav-ticker span{color:var(--red)}
+@media(max-width:680px){.nav-ticker{display:none}}
+.nav-btn{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:var(--cream);
+  font-family:var(--mono);font-size:.5rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  padding:10px 24px;text-decoration:none;transition:background .2s,transform .2s}
+.nav-btn:hover{background:var(--red2);transform:translateY(-1px)}
+
+/* SHARED */
+.wrap{padding:8rem 4rem}
+@media(max-width:640px){.wrap{padding:5.5rem 1.5rem}}
+
+.chip{font-family:var(--mono);font-size:.48rem;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--gold);display:inline-flex;align-items:center;gap:.7rem;margin-bottom:1rem}
+.chip::before{content:'';width:18px;height:1px;background:var(--gold);flex-shrink:0}
+.chip.c{justify-content:center}.chip.c::before{display:none}
+.chip.r{color:var(--red)}.chip.r::before{background:var(--red)}
+.chip.g{color:#4ade80}.chip.g::before{background:#4ade80}
+
+.rule{width:52px;height:2px;background:linear-gradient(90deg,var(--red),var(--gold),transparent);margin-bottom:2rem}
+.rule.c{margin-left:auto;margin-right:auto}
+
+/* TYPOGRAPHY — BIGGER ACROSS THE BOARD */
+.h1-display{font-family:var(--serif);font-weight:300;font-size:clamp(3.5rem,10vw,11rem);line-height:.84;letter-spacing:-.05em;color:var(--cream)}
+.h1-display em{color:var(--red);font-style:italic}
+.h2-display{font-family:var(--serif);font-weight:300;font-size:clamp(2.5rem,5.5vw,5rem);line-height:.9;letter-spacing:-.04em;color:var(--cream);margin-bottom:1.2rem}
+.h2-display em{color:var(--red);font-style:italic}
+.h2-display .g{color:var(--gold)}
+.h3{font-family:var(--serif);font-weight:600;font-size:clamp(1.3rem,2.5vw,1.8rem);color:var(--cream);letter-spacing:-.02em;line-height:1.15;margin-bottom:.6rem}
+.body-lg{font-size:1rem;line-height:2;color:var(--soft)}
+.body-lg strong{color:var(--cream);font-weight:500}
+.body-md{font-size:.9rem;line-height:1.95;color:var(--soft)}
+.body-md strong{color:var(--cream);font-weight:500}
+.body-sm{font-size:.82rem;line-height:1.85;color:rgba(240,234,226,.5)}
+.body-sm strong{color:var(--cream);font-weight:500}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;
+  position:relative;overflow:hidden;transition:all .25s var(--ease)}
+.btn::before{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.09) 50%,transparent 70%);transform:translateX(-120%);transition:transform .5s}
+.btn:hover::before{transform:translateX(120%)}
+.btn-red{background:var(--red);color:var(--cream);font-size:.62rem;padding:18px 42px}
+.btn-red:hover{background:var(--red2);transform:translateY(-2px);box-shadow:0 14px 44px rgba(200,16,46,.4)}
+.btn-ghost{background:transparent;color:var(--cream);font-size:.58rem;padding:16px 36px;border:1px solid rgba(240,234,226,.2)}
+.btn-ghost:hover{border-color:rgba(240,234,226,.45)}
+.arr{transition:transform .2s}.btn:hover .arr{transform:translateX(5px)}
+
+/* ═══════════════════
+   HERO
+═══════════════════ */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:calc(62px + 5rem) 2.5rem 6rem;position:relative;overflow:hidden;
+  background:
+    radial-gradient(ellipse 75% 55% at 50% -8%,rgba(200,16,46,.26) 0%,transparent 56%),
+    radial-gradient(ellipse 45% 35% at 5% 95%,rgba(196,146,58,.07) 0%,transparent 55%),
+    linear-gradient(180deg,#1A0A0E 0%,#0C090A 50%,#080609 100%)}
+.hero::before{content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);
+  background-size:68px 68px;mask-image:radial-gradient(ellipse 80% 70% at 50% 50%,black 0%,transparent 100%)}
+.hero-in{max-width:980px;position:relative;z-index:2}
+
+.evt-badge{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(200,16,46,.35);background:rgba(200,16,46,.08);padding:7px 18px;margin-bottom:2.5rem}
+.evt-dot{width:7px;height:7px;border-radius:50%;background:var(--red);animation:blink 2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.7)}}
+.evt-text{font-family:var(--mono);font-size:.46rem;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+
+.hero-pre{font-family:var(--mono);font-size:.5rem;letter-spacing:.28em;text-transform:uppercase;color:var(--faint);margin-bottom:.8rem}
+
+/* HERO HEADLINE */
+.hero-h1{font-family:var(--serif);font-weight:300;font-size:clamp(3.5rem,10vw,11rem);line-height:.84;letter-spacing:-.05em;color:var(--cream);margin-bottom:2rem}
+.hero-h1 em{color:var(--red);font-style:italic}
+.hero-h1 .line{display:block}
+
+/* PAID FOR LIST — primary hook */
+.paid-for{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:2.8rem}
+.pf-item{font-family:var(--mono);font-size:.46rem;letter-spacing:.14em;text-transform:uppercase;
+  padding:8px 18px;border:1px solid var(--border-gold);color:var(--gold2);
+  background:rgba(196,146,58,.06);transition:all .2s}
+.pf-item:hover{background:rgba(196,146,58,.14);border-color:rgba(196,146,58,.4)}
+
+.hero-sub{font-size:clamp(1rem,1.8vw,1.2rem);line-height:1.9;color:var(--soft);max-width:680px;margin:0 auto 3rem}
+.hero-sub strong{color:var(--cream);font-weight:500}
+
+/* countdown */
+.cdown{margin-bottom:3rem}
+.cd-lbl{font-family:var(--mono);font-size:.44rem;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);margin-bottom:.9rem}
+.cd-row{display:inline-flex;gap:0;flex-wrap:wrap;justify-content:center}
+.cd-box{padding:1rem 1.6rem;background:rgba(200,16,46,.07);border:1px solid rgba(200,16,46,.2);text-align:center;margin-right:-1px;min-width:72px}
+.cd-n{font-family:var(--serif);font-weight:700;font-size:3rem;line-height:1;color:var(--cream);letter-spacing:-.04em;display:block}
+.cd-u{font-family:var(--mono);font-size:.36rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);display:block;margin-top:.3rem}
+.cd-sep{display:flex;align-items:center;padding:0 .4rem;color:rgba(200,16,46,.4);font-family:var(--serif);font-size:1.8rem;padding-top:.12rem}
+
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:center;margin-bottom:1.8rem}
+
+.hero-foot{font-family:var(--mono);font-size:.42rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(240,234,226,.16);line-height:2.2}
+.hero-foot span{color:rgba(196,146,58,.4)}
+
+.meta-strip{display:flex;flex-wrap:wrap;justify-content:center;gap:0;border:1px solid var(--border);margin-top:2.5rem}
+.mi{padding:.85rem 2rem;border-right:1px solid var(--border);text-align:center}
+.mi:last-child{border-right:none}
+.mi-lbl{font-family:var(--mono);font-size:.38rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(240,234,226,.3);display:block;margin-bottom:.3rem}
+.mi-val{font-family:var(--serif);font-weight:600;font-size:1.15rem;color:var(--cream);display:block;letter-spacing:-.01em}
+@media(max-width:640px){.meta-strip{flex-direction:column}.mi{border-right:none;border-bottom:1px solid var(--border)}.mi:last-child{border-bottom:none}}
+
+/* ═══════════════════
+   PRIMARY ICP — MONETIZATION
+═══════════════════ */
+.monetize{background:var(--deep);border-top:1px solid var(--border)}
+.mon-head{max-width:700px;margin:0 auto 4.5rem;text-align:center}
+
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-bottom:1px}
+@media(max-width:820px){.services-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.services-grid{grid-template-columns:1fr}}
+.svc{background:var(--panel);padding:2.2rem;position:relative;overflow:hidden;
+  display:flex;flex-direction:column;transition:background .3s}
+.svc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--gold),transparent);transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.svc:hover::before{transform:scaleX(1)}
+.svc:hover{background:var(--surface)}
+.svc-icon{font-size:1.6rem;margin-bottom:1.2rem;display:block}
+.svc-name{font-family:var(--serif);font-weight:600;font-size:1.3rem;color:var(--cream);letter-spacing:-.02em;margin-bottom:.5rem}
+.svc-desc{font-size:.86rem;line-height:1.85;color:var(--soft);margin-bottom:1.2rem;flex:1}
+.svc-rate{border-top:1px solid var(--border);padding-top:1rem;margin-top:auto}
+.svc-rate-lbl{font-family:var(--mono);font-size:.38rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(240,234,226,.28);display:block;margin-bottom:.3rem}
+.svc-rate-val{font-family:var(--serif);font-weight:700;font-size:1.4rem;color:var(--gold);letter-spacing:-.02em}
+.svc-rate-sub{font-family:var(--mono);font-size:.36rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(196,146,58,.45);margin-left:.5rem}
+
+.mon-pull{border-left:3px solid var(--red);padding:1.5rem 1.5rem 1.5rem 2rem;
+  background:rgba(200,16,46,.05);margin:3rem 0;position:relative}
+.mon-pull::before{content:'';position:absolute;top:0;left:-3px;width:3px;height:40%;background:var(--gold)}
+.mon-pull p{font-family:var(--serif);font-style:italic;font-weight:300;
+  font-size:clamp(1.05rem,2vw,1.3rem);line-height:1.65;color:var(--cream)}
+
+.mon-cta{display:flex;align-items:center;gap:2.5rem;flex-wrap:wrap}
+.mon-cta-text{font-family:var(--serif);font-style:italic;font-weight:300;
+  font-size:clamp(1rem,1.8vw,1.15rem);color:var(--soft)}
+.mon-cta-text strong{color:var(--cream);font-style:normal;font-weight:500}
+
+/* ═══════════════════
+   SECONDARY ICP — INFRASTRUCTURE
+═══════════════════ */
+.infra{border-top:1px solid var(--border);
+  background:linear-gradient(180deg,rgba(196,146,58,.03) 0%,transparent 50%),var(--ink)}
+.infra-head{max-width:700px;margin:0 auto 4rem;text-align:center}
+.infra-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px}
+@media(max-width:720px){.infra-grid{grid-template-columns:1fr}}
+.infra-card{background:var(--panel);padding:2.4rem;position:relative;overflow:hidden}
+.infra-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--gold),transparent);transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.infra-card:hover::after{transform:scaleX(1)}
+.ic-role{font-family:var(--mono);font-size:.44rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold2);display:flex;align-items:center;gap:.6rem;margin-bottom:1rem}
+.ic-role::before{content:'';width:12px;height:1px;background:var(--gold2)}
+.ic-title{font-family:var(--serif);font-weight:600;font-size:1.2rem;color:var(--cream);letter-spacing:-.01em;line-height:1.3;margin-bottom:1rem}
+.ic-pains{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:1.2rem}
+.ic-pains li{font-size:.84rem;line-height:1.7;color:rgba(240,234,226,.44);padding-left:18px;position:relative}
+.ic-pains li::before{content:'→';position:absolute;left:0;color:rgba(200,16,46,.5);font-size:.75rem;top:1px}
+.ic-snap{font-family:var(--serif);font-style:italic;font-weight:300;font-size:.9rem;
+  color:rgba(240,234,226,.3);padding-top:1rem;border-top:1px solid var(--border);line-height:1.55}
+
+/* ═══════════════════
+   PROOF — AI BUILT THIS
+═══════════════════ */
+.ai-proof{background:var(--deep);border-top:1px solid var(--border)}
+.ap-head{max-width:680px;margin:0 auto 4.5rem;text-align:center}
+
+/* The numbers */
+.ai-numbers{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-bottom:4rem}
+@media(max-width:720px){.ai-numbers{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.ai-numbers{grid-template-columns:1fr}}
+.an{background:var(--panel);padding:2.2rem;text-align:center;position:relative;overflow:hidden}
+.an::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent)}
+.an-time{font-family:var(--serif);font-weight:700;font-size:3.8rem;color:var(--gold);letter-spacing:-.06em;display:block;line-height:1;margin-bottom:.25rem}
+.an-unit{font-family:var(--mono);font-size:.4rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(196,146,58,.45);display:block;margin-bottom:.9rem}
+.an-what{font-size:.94rem;color:var(--cream);font-weight:500;display:block;margin-bottom:.4rem}
+.an-vs{font-size:.78rem;color:rgba(240,234,226,.38);line-height:1.6}
+.an-vs s{color:rgba(240,234,226,.2)}
+
+/* Brenda proof */
+.brenda-proof{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;margin-top:0}
+@media(max-width:820px){.brenda-proof{grid-template-columns:1fr}}
+.bp-items{list-style:none;display:flex;flex-direction:column;gap:12px;margin:1.8rem 0}
+.bp-items li{font-size:.88rem;line-height:1.7;color:rgba(240,234,226,.5);padding-left:22px;position:relative}
+.bp-items li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-size:.78rem;top:2px}
+.bp-stamp{display:flex;align-items:flex-start;gap:1rem;border:1px solid rgba(196,146,58,.2);
+  padding:1.5rem;background:rgba(196,146,58,.04);margin-top:2rem}
+.bps-icon{color:var(--gold);font-size:1.1rem;flex-shrink:0;margin-top:2px}
+.bps-text{font-size:.84rem;line-height:1.75;color:rgba(240,234,226,.44)}
+.bps-text strong{color:var(--cream);font-weight:500;display:block;margin-bottom:3px;font-size:.9rem}
+
+/* what AI built for Brenda */
+.ai-built-list{display:flex;flex-direction:column;gap:1px}
+.abl{background:var(--panel);padding:1.3rem 1.6rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
+.abl:hover{background:var(--surface)}
+.abl-name{font-size:.88rem;color:var(--cream);font-weight:400}
+.abl-detail{font-family:var(--mono);font-size:.38rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(196,146,58,.6);text-align:right;white-space:nowrap}
+.abl-detail s{color:rgba(240,234,226,.2);display:block}
+
+/* ═══════════════════
+   WHAT GETS BUILT
+═══════════════════ */
+.builds{border-top:1px solid var(--border);
+  background:linear-gradient(180deg,rgba(200,16,46,.04) 0%,transparent 40%),var(--ink)}
+.builds-head{max-width:680px;margin:0 auto 4.5rem;text-align:center}
+.builds-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px}
+@media(max-width:720px){.builds-grid{grid-template-columns:1fr}}
+.bc{background:var(--panel);display:flex;flex-direction:column;overflow:hidden}
+.bc-img{width:100%;aspect-ratio:16/10;overflow:hidden;background:var(--surface);position:relative;flex-shrink:0}
+.bc-img img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .55s var(--ease)}
+.bc:hover .bc-img img{transform:scale(1.05)}
+.bc-overlay{position:absolute;bottom:0;left:0;right:0;padding:8px 14px;background:linear-gradient(0deg,rgba(12,9,10,.92),transparent)}
+.bc-tag{font-family:var(--mono);font-size:.38rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.bc-body{padding:1.8rem;flex:1;display:flex;flex-direction:column}
+.bc-eye{font-family:var(--mono);font-size:.38rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(200,16,46,.6);margin-bottom:.4rem}
+.bc-title{font-family:var(--serif);font-weight:600;font-size:1.15rem;color:var(--cream);margin-bottom:.5rem;letter-spacing:-.01em;line-height:1.2}
+.bc-desc{font-size:.82rem;line-height:1.8;color:rgba(240,234,226,.42);flex:1;margin-bottom:1rem}
+.bc-use{background:rgba(196,146,58,.06);border:1px solid rgba(196,146,58,.14);padding:.8rem 1rem;margin-bottom:1rem}
+.bc-use-lbl{font-family:var(--mono);font-size:.34rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.3rem}
+.bc-use-text{font-size:.78rem;color:rgba(240,234,226,.55);line-height:1.6}
+.bc-tier{border-top:1px solid var(--border);padding-top:.9rem;margin-top:auto}
+.bc-tier-lbl{display:block;font-family:var(--mono);font-size:.36rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.2rem}
+.bc-tier-val{font-family:var(--mono);font-size:.44rem;letter-spacing:.08em;color:rgba(196,146,58,.55)}
+
+.builds-quote{background:rgba(200,16,46,.05);border:1px solid rgba(200,16,46,.1);padding:3rem;margin-top:1px}
+.bq-p{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(1rem,2vw,1.3rem);line-height:1.7;color:rgba(240,234,226,.65)}
+.bq-p strong{color:var(--cream);font-style:normal;font-weight:500}
+.bq-cite{display:block;font-family:var(--mono);font-size:.42rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-top:1rem;font-style:normal}
+
+/* ═══════════════════
+   INTERRUPT
+═══════════════════ */
+.interrupt{padding:3.5rem 4rem;background:linear-gradient(135deg,#1E1209 0%,#161008 100%);
+  border-top:1px solid rgba(200,16,46,.22);border-bottom:1px solid rgba(200,16,46,.22);
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem}
+@media(max-width:640px){.interrupt{padding:3rem 1.5rem;flex-direction:column;text-align:center}}
+.int-h{font-family:var(--serif);font-weight:300;font-size:clamp(1.5rem,3vw,2.4rem);
+  color:var(--cream);letter-spacing:-.02em;line-height:1.05;margin-bottom:.35rem}
+.int-h em{color:var(--red);font-style:italic}
+.int-sub{font-family:var(--mono);font-size:.42rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(240,234,226,.35)}
+
+/* ═══════════════════
+   TICKETS
+═══════════════════ */
+.tickets{border-top:1px solid var(--border);
+  background:linear-gradient(180deg,rgba(196,146,58,.03) 0%,transparent 40%),var(--ink)}
+.tickets-head{max-width:680px;margin:0 auto 4.5rem;text-align:center}
+.tickets-sub{font-size:.96rem;line-height:1.9;color:var(--soft)}
+
+.ticket-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+@media(max-width:900px){.ticket-grid{grid-template-columns:1fr}}
+
+.tkt{background:var(--panel);display:flex;flex-direction:column;position:relative;overflow:hidden;
+  border:1px solid rgba(240,234,226,.05);transition:transform .3s var(--ease)}
+.tkt:hover{transform:translateY(-5px)}
+.tkt::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.t1::before{background:rgba(196,146,58,.45)}
+.t2::before{background:linear-gradient(90deg,var(--red),var(--gold))}
+.t3::before{background:var(--gold2)}
+.t2{border:1px solid rgba(200,16,46,.22);box-shadow:0 0 60px rgba(200,16,46,.07)}
+
+.tkt-img-wrap{padding:1.6rem 1.6rem 0}
+.tkt-img{width:100%;display:block;border:1px solid var(--border);transition:transform .4s}
+.tkt:hover .tkt-img{transform:scale(1.02)}
+.tkt-img-ph{width:100%;aspect-ratio:4/3;background:var(--surface);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;border:1px solid var(--border)}
+.tiph-tier{font-family:var(--mono);font-size:.4rem;letter-spacing:.18em;text-transform:uppercase}
+.tiph-name{font-family:var(--serif);font-weight:600;font-size:1.4rem;color:var(--cream)}
+
+.tkt-body{padding:2rem;flex:1;display:flex;flex-direction:column}
+.tkt-eye{font-family:var(--mono);font-size:.4rem;letter-spacing:.18em;text-transform:uppercase;padding:4px 12px;border:1px solid;display:inline-block;margin-bottom:.9rem}
+.t1 .tkt-eye{color:rgba(196,146,58,.65);border-color:rgba(196,146,58,.2)}
+.t2 .tkt-eye{color:var(--red);border-color:rgba(200,16,46,.3)}
+.t3 .tkt-eye{color:var(--gold2);border-color:rgba(196,146,58,.3)}
+.tkt-name{font-family:var(--serif);font-weight:600;font-size:1.5rem;color:var(--cream);letter-spacing:-.02em;margin-bottom:.4rem}
+.tkt-for{font-size:.84rem;line-height:1.7;color:rgba(240,234,226,.4);margin-bottom:1.4rem}
+.tkt-for strong{color:rgba(240,234,226,.68);font-weight:500}
+
+/* PRICE — USD FIRST */
+.tkt-price-wrap{padding:1.1rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:1.4rem}
+.tkt-price-usd{font-family:var(--serif);font-weight:700;font-size:2.5rem;letter-spacing:-.04em;line-height:1;margin-bottom:.35rem}
+.t1 .tkt-price-usd{color:rgba(196,146,58,.88)}
+.t2 .tkt-price-usd{color:var(--red2)}
+.t3 .tkt-price-usd{color:var(--gold2)}
+.tkt-price-others{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:.45rem}
+.tpo{font-family:var(--mono);font-size:.38rem;letter-spacing:.08em;text-transform:uppercase;
+  color:rgba(240,234,226,.3);padding:2px 8px;border:1px solid rgba(240,234,226,.08)}
+.tkt-mktval{font-family:var(--mono);font-size:.42rem;letter-spacing:.1em;text-transform:uppercase}
+.t1 .tkt-mktval{color:rgba(196,146,58,.5)}
+.t2 .tkt-mktval{color:rgba(200,16,46,.6)}
+.t3 .tkt-mktval{color:rgba(196,146,58,.6)}
+
+.tkt-del-lbl{font-family:var(--mono);font-size:.4rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(240,234,226,.28);margin-bottom:.9rem}
+.tkt-list{list-style:none;display:flex;flex-direction:column;gap:9px;flex:1}
+.tkt-list li{font-size:.82rem;line-height:1.55;color:rgba(240,234,226,.52);display:flex;gap:10px;align-items:flex-start}
+.tkt-list li span{flex-shrink:0;margin-top:2px}
+.t1 .ck{color:rgba(196,146,58,.55)}.t2 .ck{color:var(--red)}.t3 .ck{color:var(--gold2)}
+.tkt-list .hl{color:rgba(240,234,226,.78);font-weight:500}
+
+.tkt-perf{border-top:2px dashed rgba(255,255,255,.06);margin:1.2rem 1.8rem 0;padding-top:.9rem;
+  font-family:var(--mono);font-size:.36rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(240,234,226,.18);text-align:center}
+
+.tkt-cta-wrap{padding:1.4rem 2rem 2rem}
+.tkt-cta{display:flex;align-items:center;justify-content:center;width:100%;
+  font-family:var(--mono);font-size:.54rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  padding:15px 18px;border:none;cursor:pointer;transition:all .2s;text-decoration:none}
+.t1 .tkt-cta{background:transparent;color:var(--gold);border:1px solid rgba(196,146,58,.28)}
+.t1 .tkt-cta:hover{background:rgba(196,146,58,.09)}
+.t2 .tkt-cta{background:var(--red);color:var(--cream)}
+.t2 .tkt-cta:hover{background:var(--red2);box-shadow:0 8px 32px rgba(200,16,46,.32)}
+.t3 .tkt-cta{background:transparent;color:var(--gold2);border:1px solid rgba(196,146,58,.32)}
+.t3 .tkt-cta:hover{background:rgba(196,146,58,.09)}
+
+/* value table */
+.vtable-wrap{overflow-x:auto;margin-top:3.5rem}
+.vt{width:100%;border-collapse:collapse}
+.vt th{font-family:var(--mono);font-size:.42rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);padding:.8rem 1.4rem;border-bottom:1px solid rgba(200,16,46,.25);text-align:left}
+.vt th:not(:first-child){text-align:center}
+.vt td{padding:.85rem 1.4rem;border-bottom:1px solid var(--border);font-size:.84rem;color:var(--soft)}
+.vt td:not(:first-child){text-align:center;font-family:var(--mono);font-size:.46rem}
+.vt tr:last-child td{border-bottom:none}
+.vt .hl td{background:rgba(200,16,46,.05);color:var(--cream);font-weight:500}
+.vt .pr td{font-family:var(--serif);font-weight:700;font-size:1.3rem}
+.c1{color:rgba(196,146,58,.85)}.c2{color:var(--red2)}.c3{color:var(--gold2)}
+.yes{color:#4ade80}
+
+/* ═══════════════════
+   BONUSES
+═══════════════════ */
+.bonuses{background:var(--deep);border-top:1px solid var(--border)}
+.bonus-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-bottom:2rem}
+@media(max-width:640px){.bonus-grid{grid-template-columns:1fr}}
+.bcard{background:var(--panel);padding:2.2rem;position:relative;overflow:hidden}
+.bcard::before{content:'FREE';position:absolute;top:1.3rem;right:1.3rem;
+  font-family:var(--mono);font-size:.38rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--red);border:1px solid rgba(200,16,46,.28);padding:3px 10px}
+.bn-n{font-family:var(--mono);font-size:.42rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem}
+.bn-title{font-size:.98rem;color:var(--cream);font-weight:500;margin-bottom:.4rem}
+.bn-val{font-family:var(--mono);font-size:.4rem;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-bottom:.6rem}
+.bn-val s{color:rgba(240,234,226,.22)}.bn-val strong{color:var(--gold)}
+.bn-desc{font-size:.82rem;line-height:1.75;color:rgba(240,234,226,.4)}
+.bn-ex{display:inline-block;margin-top:.7rem;font-family:var(--mono);font-size:.38rem;letter-spacing:.14em;text-transform:uppercase;padding:4px 12px;background:rgba(200,16,46,.08);border:1px solid rgba(200,16,46,.22);color:var(--red)}
+
+/* ═══════════════════
+   GUARANTEE
+═══════════════════ */
+.guarantee{border-top:1px solid var(--border);
+  background:linear-gradient(180deg,rgba(196,146,58,.04) 0%,transparent 50%),var(--ink)}
+.guar-in{max-width:740px;margin:0 auto;text-align:center}
+.guar-seal{width:120px;height:120px;border-radius:50%;border:2px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;margin:0 auto 3rem;
+  background:rgba(196,146,58,.06);position:relative}
+.guar-seal::before{content:'';position:absolute;inset:-7px;border-radius:50%;border:1px solid rgba(196,146,58,.18)}
+.gsi{text-align:center}
+.gsi-top{font-family:var(--mono);font-size:.34rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);display:block}
+.gsi-mid{font-family:var(--serif);font-weight:700;font-size:1.6rem;color:var(--gold);display:block;line-height:1}
+.gsi-bot{font-family:var(--mono);font-size:.34rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);display:block}
+
+.guar-box{border:1px solid rgba(196,146,58,.22);padding:2.8rem;
+  background:rgba(196,146,58,.04);margin:2rem auto;max-width:620px;text-align:left;position:relative}
+.guar-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--red),var(--gold))}
+.guar-title{font-family:var(--serif);font-weight:600;font-size:1.5rem;color:var(--cream);margin-bottom:.9rem;letter-spacing:-.02em}
+.guar-p{font-size:.9rem;line-height:2;color:var(--soft);margin-bottom:.9rem}
+.guar-p strong{color:var(--cream);font-weight:500}
+.guar-fine{font-family:var(--mono);font-size:.42rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(240,234,226,.28);text-align:center;margin-top:1.5rem;line-height:1.9}
+
+/* ═══════════════════
+   REFERRAL TEASER
+═══════════════════ */
+.referral{background:var(--deep);border-top:1px solid var(--border)}
+.ref-cols{display:grid;grid-template-columns:1.15fr 1fr;gap:5rem;align-items:center;margin-top:3rem}
+@media(max-width:820px){.ref-cols{grid-template-columns:1fr}}
+.ref-big{font-family:var(--serif);font-weight:700;font-size:clamp(4rem,9vw,8rem);color:var(--gold);letter-spacing:-.06em;line-height:1;display:block}
+.ref-unit{font-family:var(--mono);font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(196,146,58,.45);display:block;margin-bottom:.6rem}
+.ref-sub{font-family:var(--mono);font-size:.4rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(240,234,226,.28)}
+.ref-perks{display:flex;flex-direction:column;gap:1px;margin-top:2rem}
+.rp{background:var(--panel);padding:1.4rem 1.6rem;display:flex;align-items:flex-start;gap:1rem}
+.rp-icon{color:var(--gold);font-size:1rem;flex-shrink:0;margin-top:2px}
+.rp-t{font-size:.86rem;line-height:1.65;color:var(--soft)}
+.rp-t strong{color:var(--cream);font-weight:500}
+
+/* ═══════════════════
+   URGENCY
+═══════════════════ */
+.urgency{border-top:1px solid var(--border);background:linear-gradient(180deg,rgba(200,16,46,.05) 0%,transparent 50%),var(--ink)}
+.urg-in{max-width:820px}
+.urg-spots{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin:2.5rem 0}
+@media(max-width:480px){.urg-spots{grid-template-columns:1fr}}
+.us{background:var(--panel);padding:1.8rem;text-align:center}
+.us-name{font-family:var(--mono);font-size:.4rem;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);display:block;margin-bottom:.5rem}
+.us-n{font-family:var(--serif);font-weight:700;font-size:2.4rem;letter-spacing:-.03em;display:block;line-height:1}
+.u1{color:rgba(196,146,58,.85)}.u2{color:var(--red2)}.u3{color:var(--gold2)}
+.us-sub{font-family:var(--mono);font-size:.38rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(240,234,226,.28);display:block;margin-top:.35rem}
+
+/* ═══════════════════
+   FAQ
+═══════════════════ */
+.faq{background:var(--deep);border-top:1px solid var(--border)}
+.faq-in{max-width:780px;margin:0 auto}
+.faq-list{display:flex;flex-direction:column}
+.faq-item{border-top:1px solid var(--border)}
+.faq-item:last-child{border-bottom:1px solid var(--border)}
+.faq-btn{width:100%;display:flex;justify-content:space-between;align-items:center;gap:1.5rem;
+  background:none;border:none;cursor:pointer;padding:1.5rem 0;text-align:left;
+  color:var(--cream);font-family:var(--body);font-size:.96rem;font-weight:400;line-height:1.45;transition:color .2s}
+.faq-btn:hover,.faq-btn[aria-expanded="true"]{color:var(--gold2)}
+.faq-ico{flex-shrink:0;width:26px;height:26px;border:1px solid rgba(255,255,255,.09);display:flex;align-items:center;justify-content:center;transition:all .2s}
+.faq-btn[aria-expanded="true"] .faq-ico{border-color:rgba(200,16,46,.38);background:rgba(200,16,46,.07)}
+.faq-plus{font-family:var(--mono);font-size:.86rem;color:rgba(240,234,226,.32);line-height:1;display:block;transition:transform .3s,color .2s}
+.faq-btn[aria-expanded="true"] .faq-plus{transform:rotate(45deg);color:var(--red)}
+.faq-ans{display:grid;grid-template-rows:0fr;transition:grid-template-rows .38s var(--ease)}
+.faq-ans.open{grid-template-rows:1fr}
+.faq-ans-in{overflow:hidden;font-size:.88rem;line-height:2;color:rgba(240,234,226,.48);transition:padding-bottom .38s}
+.faq-ans.open .faq-ans-in{padding-bottom:2rem}
+.faq-ans-in strong{color:var(--cream);font-weight:500}
+.faq-wa{display:inline-flex;align-items:center;gap:8px;margin-top:1rem;
+  font-family:var(--mono);font-size:.44rem;letter-spacing:.16em;text-transform:uppercase;
+  padding:10px 22px;background:rgba(37,211,102,.055);border:1px solid rgba(37,211,102,.22);
+  color:rgba(37,211,102,.75);text-decoration:none;transition:all .2s}
+.faq-wa:hover{background:rgba(37,211,102,.1);color:#25d366}
+
+/* ═══════════════════
+   FINAL CTA
+═══════════════════ */
+.final{padding:10rem 4rem;border-top:2px solid rgba(200,16,46,.35);text-align:center;
+  position:relative;overflow:hidden;
+  background:radial-gradient(ellipse 65% 55% at 50% 50%,rgba(200,16,46,.1) 0%,transparent 65%),
+    linear-gradient(180deg,#1C0C10 0%,#0C090A 60%,#080609 100%)}
+@media(max-width:640px){.final{padding:7rem 1.5rem}}
+.final-in{max-width:660px;margin:0 auto;position:relative;z-index:2}
+.final-over{font-family:var(--mono);font-size:.48rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(200,16,46,.55);margin-bottom:1rem}
+.final-h{font-family:var(--serif);font-weight:300;font-size:clamp(2.8rem,8vw,7rem);
+  color:var(--cream);line-height:.86;letter-spacing:-.05em;margin-bottom:1.2rem}
+.final-h em{color:var(--red);font-style:italic}
+
+.final-tix{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin:3rem auto;max-width:600px}
+@media(max-width:480px){.final-tix{grid-template-columns:1fr}}
+.ft{background:var(--panel);padding:1.5rem;text-align:center}
+.ft-n{font-family:var(--mono);font-size:.38rem;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);display:block;margin-bottom:.5rem}
+.ft-p{font-family:var(--serif);font-weight:700;font-size:1.7rem;display:block;letter-spacing:-.02em;margin-bottom:.3rem}
+.ft1 .ft-p{color:rgba(196,146,58,.85)}.ft2 .ft-p{color:var(--red2)}.ft3 .ft-p{color:var(--gold2)}
+.ft-s{font-family:var(--mono);font-size:.36rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(240,234,226,.28);display:block;margin-bottom:.8rem}
+.ft-btn{display:flex;align-items:center;justify-content:center;width:100%;text-decoration:none;
+  font-family:var(--mono);font-size:.5rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  padding:13px;transition:all .2s;border:none;cursor:pointer}
+.ft1 .ft-btn{background:transparent;color:var(--gold);border:1px solid rgba(196,146,58,.25)}
+.ft1 .ft-btn:hover{background:rgba(196,146,58,.08)}
+.ft2 .ft-btn{background:var(--red);color:var(--cream)}
+.ft2 .ft-btn:hover{background:var(--red2)}
+.ft3 .ft-btn{background:transparent;color:var(--gold2);border:1px solid rgba(196,146,58,.3)}
+.ft3 .ft-btn:hover{background:rgba(196,146,58,.08)}
+.final-note{font-family:var(--mono);font-size:.42rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(240,234,226,.12);margin-top:2rem;line-height:2}
+
+/* FOOTER */
+.footer{padding:2.5rem 4rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+@media(max-width:640px){.footer{padding:2rem 1.5rem}}
+.footer-brand{font-family:var(--mono);font-size:.46rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.footer-note{font-family:var(--mono);font-size:.42rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(240,234,226,.1)}
+</style>
+</head>
+<body>
+<div class="spine"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-brand">AI Solopreneur Toolkit™ · First Edition</div>
+  <div class="nav-right">
+    <span class="nav-ticker">Enrollment closes <span>July 16</span></span>
+    <a class="nav-btn" href="#tickets">Get Ticket →</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════
+     HERO
+═══════════════════════════════════ -->
+<section class="hero" id="top">
+  <div class="hero-in">
+
+    <div class="evt-badge">
+      <span class="evt-dot"></span>
+      <span class="evt-text">Live Build Event · First Edition · July 16, 2026 · 150 Tickets Only</span>
+    </div>
+
+    <div class="hero-pre">The AI Solopreneur Toolkit™</div>
+
+    <h1 class="hero-h1">
+      <span class="line">Learn to build</span>
+      <span class="line">with AI. Get <em>paid</em></span>
+      <span class="line">for it.</span>
+    </h1>
+
+    <div class="paid-for">
+      <span class="pf-item">Infographics</span>
+      <span class="pf-item">Landing Pages</span>
+      <span class="pf-item">Portfolios</span>
+      <span class="pf-item">Brand Assets</span>
+      <span class="pf-item">Lead Magnets</span>
+      <span class="pf-item">Content Systems</span>
+      <span class="pf-item">Client Documents</span>
+    </div>
+
+    <p class="hero-sub">
+      A live implementation event where you build real, sellable business assets with AI — during the sessions, alongside Brenda, before each call ends. <strong>No design background. No technical skills. No expensive software.</strong> Just AI, the right system, and 90 minutes per session.
+    </p>
+
+    <div class="cdown">
+      <div class="cd-lbl">Enrollment closes July 16, 2026 when Session 1 begins</div>
+      <div class="cd-row">
+        <div class="cd-box"><span class="cd-n" id="cd-d">00</span><span class="cd-u">Days</span></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-box"><span class="cd-n" id="cd-h">00</span><span class="cd-u">Hours</span></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-box"><span class="cd-n" id="cd-m">00</span><span class="cd-u">Mins</span></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-box"><span class="cd-n" id="cd-s">00</span><span class="cd-u">Secs</span></div>
+      </div>
+    </div>
+
+    <div class="hero-btns">
+      <a class="btn btn-red" href="#tickets">Get Your Ticket — From $9 <span class="arr">→</span></a>
+      <a class="btn btn-ghost" href="#what-you-build">See What You'll Build</a>
+    </div>
+
+    <div class="hero-foot">
+      <span>$9 / 5,000 FCFA</span> · <span>$18 / 10,000 FCFA</span> · <span>$37 / 20,000 FCFA</span><br>
+      3 to 12 live sessions · Assets built during every session · First Edition pricing only
+    </div>
+
+    <div class="meta-strip">
+      <div class="mi"><span class="mi-lbl">Date</span><span class="mi-val">July 16, 2026</span></div>
+      <div class="mi"><span class="mi-lbl">Format</span><span class="mi-val">Live · Google Meet</span></div>
+      <div class="mi"><span class="mi-lbl">Sessions</span><span class="mi-val">3 to 12 Live</span></div>
+      <div class="mi"><span class="mi-lbl">Starting from</span><span class="mi-val">$9 / 5,000 FCFA</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     PRIMARY ICP — MONETIZE AI
+═══════════════════════════════════ -->
+<section class="monetize wrap">
+  <div class="mon-head">
+    <div class="chip c">Who this is primarily for</div>
+    <h2 class="h2-display" style="text-align:center">People who want to get <em>paid</em><br>for building with AI.</h2>
+    <div class="rule c"></div>
+    <p class="body-lg" style="text-align:center;max-width:620px;margin:0 auto">Businesses need infographics, landing pages, portfolios, and brand assets every day. They're paying designers and developers thousands for it. After this training — that skill set is yours. And so is the income.</p>
+  </div>
+
+  <div class="services-grid">
+    <div class="svc">
+      <span class="svc-icon">📊</span>
+      <div class="svc-name">Infographic Designer</div>
+      <p class="svc-desc">Businesses, coaches, and creators need scroll-stopping infographics every week. You build them in 38 minutes with AI. They pay for hours of work you didn't spend.</p>
+      <div class="svc-rate">
+        <span class="svc-rate-lbl">Market rate per infographic</span>
+        <span class="svc-rate-val">$50–150 <span class="svc-rate-sub">per piece</span></span>
+      </div>
+    </div>
+    <div class="svc">
+      <span class="svc-icon">🌐</span>
+      <div class="svc-name">Landing Page Builder</div>
+      <p class="svc-desc">Every solopreneur, coach, and business needs a landing page. Developers charge $300–800 per page. You build them in one session with AI — and charge accordingly.</p>
+      <div class="svc-rate">
+        <span class="svc-rate-lbl">Market rate per landing page</span>
+        <span class="svc-rate-val">$150–500 <span class="svc-rate-sub">per page</span></span>
+      </div>
+    </div>
+    <div class="svc">
+      <span class="svc-icon">💼</span>
+      <div class="svc-name">Portfolio Creator</div>
+      <p class="svc-desc">Freelancers, creatives, and job seekers need portfolios that look premium. You build them with AI — visual, branded, professional — and offer it as a service.</p>
+      <div class="svc-rate">
+        <span class="svc-rate-lbl">Market rate per portfolio</span>
+        <span class="svc-rate-val">$100–400 <span class="svc-rate-sub">per project</span></span>
+      </div>
+    </div>
+    <div class="svc">
+      <span class="svc-icon">📧</span>
+      <div class="svc-name">Email & Content Systems</div>
+      <p class="svc-desc">Businesses need email sequences, content calendars, and copy that converts. You build the entire system with AI in one session. Sell it as a done-for-you service.</p>
+      <div class="svc-rate">
+        <span class="svc-rate-lbl">Market rate for full system</span>
+        <span class="svc-rate-val">$200–600 <span class="svc-rate-sub">per project</span></span>
+      </div>
+    </div>
+    <div class="svc">
+      <span class="svc-icon">🎨</span>
+      <div class="svc-name">Brand Asset Creator</div>
+      <p class="svc-desc">Brand guides, LinkedIn banners, featured section graphics, flyers, social templates. Brenda built her entire LinkedIn brand with AI. You can build and sell the same service.</p>
+      <div class="svc-rate">
+        <span class="svc-rate-lbl">Market rate per brand package</span>
+        <span class="svc-rate-val">$200–800 <span class="svc-rate-sub">per package</span></span>
+      </div>
+    </div>
+    <div class="svc">
+      <span class="svc-icon">📄</span>
+      <div class="svc-name">Lead Magnet Specialist</div>
+      <p class="svc-desc">Coaches and consultants need lead magnets that capture emails and build trust. You build them formatted, gated, and deployed in 90 minutes. A skill every business needs.</p>
+      <div class="svc-rate">
+        <span class="svc-rate-lbl">Market rate per lead magnet</span>
+        <span class="svc-rate-val">$150–500 <span class="svc-rate-sub">per piece</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="mon-pull">
+    <p>"The people charging for these services aren't more talented. They just learned the AI system first. After July 16 — that system is yours. What you do with it is your business."</p>
+  </div>
+
+  <div class="mon-cta">
+    <p class="mon-cta-text"><strong>One training. Six sellable skills.</strong> The market rate on what you'll learn to build in this event is $100–$800 per project. The ticket starts at $9.</p>
+    <a class="btn btn-red" href="#tickets">Get My Ticket <span class="arr">→</span></a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     SECONDARY ICP — INFRASTRUCTURE
+═══════════════════════════════════ -->
+<section class="infra wrap">
+  <div class="infra-head">
+    <div class="chip c">Also for</div>
+    <h2 class="h2-display" style="text-align:center">Solopreneurs who want their<br>business to look <em>premium.</em></h2>
+    <div class="rule c"></div>
+    <p class="body-lg" style="text-align:center;max-width:620px;margin:0 auto">You don't have to sell these skills. You can simply use them to build the infrastructure your own business has been missing — and finally look as professional as your expertise.</p>
+  </div>
+
+  <div class="infra-grid">
+    <div class="infra-card">
+      <div class="ic-role">The Freelancer</div>
+      <div class="ic-title">Excellent at your craft. Your brand makes you look like you started last Tuesday.</div>
+      <ul class="ic-pains">
+        <li>Proposals identical to 40 others in that inbox</li>
+        <li>Can't charge what your work is worth because your brand won't support it</li>
+        <li>Someone with half your skill is charging three times your rate</li>
+        <li>Hours in Canva producing something average</li>
+      </ul>
+      <p class="ic-snap">"I'm losing clients I should have won. And I know exactly why."</p>
+    </div>
+    <div class="infra-card">
+      <div class="ic-role">The Coach or Consultant</div>
+      <div class="ic-title">You transform clients in 45 minutes. Your online presence doesn't show it.</div>
+      <ul class="ic-pains">
+        <li>Lead magnet still a Google Doc. Landing page still "almost ready."</li>
+        <li>Content gets saves but not sales calls</li>
+        <li>Less qualified people are fully booked while you explain what you do</li>
+        <li>You know what needs to be built. You just can't build it alone.</li>
+      </ul>
+      <p class="ic-snap">"My expertise is real. My business doesn't look like it yet."</p>
+    </div>
+    <div class="infra-card">
+      <div class="ic-role">The Content Creator</div>
+      <div class="ic-title">You show up every day. Audience growing. No system underneath it converting.</div>
+      <ul class="ic-pains">
+        <li>Followers who can't buy from you because there's no clear offer</li>
+        <li>Content that evaporates with no infrastructure to catch the momentum</li>
+        <li>No email list, no lead magnet, no landing page</li>
+        <li>Building an audience but not building a business</li>
+      </ul>
+      <p class="ic-snap">"I'm building an audience. Not a business. Yet."</p>
+    </div>
+    <div class="infra-card">
+      <div class="ic-role">The Digital Entrepreneur</div>
+      <div class="ic-title">You know exactly what needs to be built. Building it alone is killing you.</div>
+      <ul class="ic-pains">
+        <li>Every graphic, page, document costs you a week of waiting or hours of struggling</li>
+        <li>Can't afford a design team on standby</li>
+        <li>12 unfinished projects because solo execution is impossible at this pace</li>
+        <li>A business that still runs like a side project</li>
+      </ul>
+      <p class="ic-snap">"I have the vision. I don't have the tools or the time."</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     AI PROOF — BRENDA'S RECEIPTS
+═══════════════════════════════════ -->
+<section class="ai-proof wrap">
+  <div class="ap-head">
+    <div class="chip c">The proof</div>
+    <h2 class="h2-display" style="text-align:center">Brenda built everything<br>with <em>AI.</em> Here's what.</h2>
+    <div class="rule c"></div>
+    <p class="body-lg" style="text-align:center;max-width:620px;margin:0 auto">Not theory. Not "what's possible." What Brenda actually built — and the real cost and time it would have taken without AI.</p>
+  </div>
+
+  <div class="ai-numbers">
+    <div class="an">
+      <span class="an-time">38</span>
+      <span class="an-unit">minutes</span>
+      <span class="an-what">Scroll-stopping infographic</span>
+      <span class="an-vs">Designer: <s>$75–150 · 2–3 days</s><br>AI: 0 FCFA · 38 minutes</span>
+    </div>
+    <div class="an">
+      <span class="an-time">90</span>
+      <span class="an-unit">minutes</span>
+      <span class="an-what">Lead magnet — deployed live</span>
+      <span class="an-vs">Copywriter + design: <s>$200–500</s><br>AI: 0 FCFA · one session</span>
+    </div>
+    <div class="an">
+      <span class="an-time">1</span>
+      <span class="an-unit">session</span>
+      <span class="an-what">Live landing page — hosted</span>
+      <span class="an-vs">Developer: <s>$300–800</s><br>AI: 0 FCFA · before call ends</span>
+    </div>
+    <div class="an">
+      <span class="an-time">0</span>
+      <span class="an-unit">writing from scratch</span>
+      <span class="an-what">AI voice — writes like Brenda</span>
+      <span class="an-vs">Copywriter: <s>$40K FCFA/month</s><br>AI: built once · free forever</span>
+    </div>
+    <div class="an">
+      <span class="an-time">$0</span>
+      <span class="an-unit">monthly team cost</span>
+      <span class="an-what">Full business infrastructure</span>
+      <span class="an-vs">Previous team spend: <s>$270/month</s><br>Current: 0. Output went up.</span>
+    </div>
+    <div class="an">
+      <span class="an-time">#2</span>
+      <span class="an-unit">ranked in Cameroon</span>
+      <span class="an-what">Female personal branding creator</span>
+      <span class="an-vs">From Cameroon. No budget. No team.<br>LinkedIn barely exists here.</span>
+    </div>
+  </div>
+
+  <div class="brenda-proof">
+    <div>
+      <div class="chip">I am the case study</div>
+      <h2 class="h2-display">I didn't study this.<br><em>I lived it.</em></h2>
+      <div class="rule"></div>
+      <p class="body-md">I tried affiliate marketing. Didn't work. Dropshipping. Didn't work. Freelance design — worked until the referrals stopped and I had no system underneath it.</p>
+      <p class="body-md">Then I deleted 800 contacts and rebuilt from scratch with AI as my only team. From Cameroon. No budget. No developer. No design background. <strong>No excuses.</strong></p>
+      <ul class="bp-items">
+        <li>Haven't written a post manually in over 2 years — AI does it in my voice</li>
+        <li>Every infographic, lead magnet, landing page, flyer, client document — AI built. Zero designers.</li>
+        <li>My full LinkedIn banner and featured section — built with AI</li>
+        <li>Ranked #2 female personal branding creator in Cameroon</li>
+        <li>Monthly team cost went from $270 to $0. Output went up.</li>
+      </ul>
+      <div class="bp-stamp">
+        <div class="bps-icon">✦</div>
+        <div class="bps-text">
+          <strong>Not a whiteboard. A working system.</strong>
+          Everything I teach in this event I built first for myself. You are learning from someone who uses this system every single day and built a ranked brand from nothing with it.
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="chip">What AI built for Brenda</div>
+      <p class="body-md" style="margin-bottom:1.5rem">Every single thing on this list — built with free AI tools. No outsourcing. No team.</p>
+      <div class="ai-built-list">
+        <div class="abl"><span class="abl-name">LinkedIn banner</span><span class="abl-detail">AI built<br><s>$150 design fee</s></span></div>
+        <div class="abl"><span class="abl-name">Featured section graphics</span><span class="abl-detail">AI built<br><s>$200 design fee</s></span></div>
+        <div class="abl"><span class="abl-name">Every post & caption</span><span class="abl-detail">AI voice<br><s>$400/mo copywriter</s></span></div>
+        <div class="abl"><span class="abl-name">Lead magnets</span><span class="abl-detail">AI built<br><s>$300–500 each</s></span></div>
+        <div class="abl"><span class="abl-name">Sales pages</span><span class="abl-detail">AI built<br><s>$500 copywriter</s></span></div>
+        <div class="abl"><span class="abl-name">Infographics (weekly)</span><span class="abl-detail">38 mins · AI<br><s>$75–150 each</s></span></div>
+        <div class="abl"><span class="abl-name">Client proposal templates</span><span class="abl-detail">AI built<br><s>$200 consultant</s></span></div>
+        <div class="abl"><span class="abl-name">Email sequences</span><span class="abl-detail">AI built<br><s>$300 copywriter</s></span></div>
+        <div class="abl"><span class="abl-name">Landing pages</span><span class="abl-detail">AI built<br><s>$400 developer</s></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     WHAT GETS BUILT
+═══════════════════════════════════ -->
+<section class="builds wrap" id="what-you-build">
+  <div class="builds-head">
+    <div class="chip c">What you build in this event</div>
+    <h2 class="h2-display" style="text-align:center">Stop imagining it.<br><em>See it.</em></h2>
+    <div class="rule c"></div>
+    <p class="body-lg" style="text-align:center;max-width:640px;margin:0 auto">Every asset below is built during the live sessions — with Brenda, using free AI tools, before each call ends. These are the same assets businesses are paying $100–$800 for.</p>
+  </div>
+
+  <div class="builds-grid">
+    <div class="bc">
+      <div class="bc-img">
+        <img src="Images/infographics.jpg" alt="AI Infographics" onerror="this.parentElement.style.background='#1B1620'">
+        <div class="bc-overlay"><span class="bc-tag">Session 1 · 38 minutes · Free AI tool · Zero design skills</span></div>
+      </div>
+      <div class="bc-body">
+        <div class="bc-eye">Session 1 — You build this</div>
+        <div class="bc-title">Scroll-Stopping Infographics</div>
+        <p class="bc-desc">Your content. Your brand. Built live while Brenda builds hers. Finished before the call ends. The kind designers charge $75–150 to produce.</p>
+        <div class="bc-use">
+          <span class="bc-use-lbl">How you monetize this</span>
+          <span class="bc-use-text">Sell to coaches, consultants, and brands who need weekly infographics. $50–150 per piece. Build in 38 minutes. Deliver same day.</span>
+        </div>
+        <div class="bc-tier"><span class="bc-tier-lbl">Included from</span><span class="bc-tier-val">Foundation Build · $9 / 5,000 FCFA</span></div>
+      </div>
+    </div>
+    <div class="bc">
+      <div class="bc-img">
+        <img src="Images/lead-magnet.jpg" alt="Lead Magnets" onerror="this.parentElement.style.background='#1B1620'">
+        <div class="bc-overlay"><span class="bc-tag">Session 3 · Formatted · Gated · Live before call ends</span></div>
+      </div>
+      <div class="bc-body">
+        <div class="bc-eye">Session 3 — You build this</div>
+        <div class="bc-title">Premium Lead Magnets — Deployed</div>
+        <p class="bc-desc">The Google Doc that's been "almost done" for months: formatted, gated, on a live landing page capturing emails — before this session ends.</p>
+        <div class="bc-use">
+          <span class="bc-use-lbl">How you monetize this</span>
+          <span class="bc-use-text">Offer as a done-for-you service to coaches and consultants. $150–400 per lead magnet. Build in 90 minutes. Clients pay for the result.</span>
+        </div>
+        <div class="bc-tier"><span class="bc-tier-lbl">Included from</span><span class="bc-tier-val">Audience Engine · $18 / 10,000 FCFA</span></div>
+      </div>
+    </div>
+    <div class="bc">
+      <div class="bc-img">
+        <img src="Images/business-structure.jpg" alt="Complete Business OS" onerror="this.parentElement.style.background='#1B1620'">
+        <div class="bc-overlay"><span class="bc-tag">Agency Pass · 12 sessions · Full business infrastructure</span></div>
+      </div>
+      <div class="bc-body">
+        <div class="bc-eye">Agency Pass — You build this</div>
+        <div class="bc-title">The Complete Business OS</div>
+        <p class="bc-desc">Brand Brief, ICP, Content OS, Landing Page, Client Docs, Notion OS, Email Sequences. Everything your business needs — and everything you can sell as a service.</p>
+        <div class="bc-use">
+          <span class="bc-use-lbl">How you monetize this</span>
+          <span class="bc-use-text">Package the full stack as an "AI Business Setup" service. $500–1,500 per client. You built the whole thing in 12 sessions. You know exactly how to deliver it.</span>
+        </div>
+        <div class="bc-tier"><span class="bc-tier-lbl">Included from</span><span class="bc-tier-val">Complete Business OS · $37 / 20,000 FCFA</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="builds-quote">
+    <p class="bq-p">"Businesses are paying $100–$800 per project for everything you'll learn to build in this event. <strong>After July 16, that skill set is yours — to use for your own business, or to sell to clients who need it.</strong> You choose what to do with it. I just teach you how to do it."</p>
+    <span class="bq-cite">— Brenda Blanche · Personal Branding Strategist · Cameroon</span>
+  </div>
+</section>
+
+<!-- INTERRUPT -->
+<div class="interrupt">
+  <div>
+    <div class="int-h">Learn to build with AI.<br><em>Get paid for it.</em> Starting July 16.</div>
+    <div class="int-sub">150 tickets · From $9 / 5,000 FCFA · Enrollment closes July 16</div>
+  </div>
+  <a class="btn btn-red" href="#tickets">Get My Ticket <span class="arr">→</span></a>
+</div>
+
+<!-- ═══════════════════════════════════
+     TICKETS
+═══════════════════════════════════ -->
+<section class="tickets wrap" id="tickets">
+  <div class="tickets-head">
+    <div class="chip c">Choose your ticket</div>
+    <h2 class="h2-display" style="text-align:center">Three tickets.<br>One <em>live event.</em></h2>
+    <div class="rule c"></div>
+    <p class="tickets-sub">Same Brenda. Same AI systems. Same live build format. The difference is how many sessions you attend and how deep your skill set goes. Every ticket gets you assets built before each session ends.</p>
+  </div>
+
+  <div class="ticket-grid">
+
+    <!-- TICKET 1 -->
+    <div class="tkt t1">
+      <div class="tkt-img-wrap">
+        <img class="tkt-img" src="ticket-t1.png" alt="Foundation Build Ticket"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="tkt-img-ph" style="display:none">
+          <span class="tiph-tier" style="color:rgba(196,146,58,.65)">🎟 Tier 1 · Builder</span>
+          <span class="tiph-name">Foundation Build™</span>
+        </div>
+      </div>
+      <div class="tkt-body">
+        <span class="tkt-eye">🎟 Builder Pass · Tier 1</span>
+        <div class="tkt-name">Foundation Build™</div>
+        <p class="tkt-for"><strong>Best for:</strong> people who want to learn the core AI build skills — infographics, AI voice, and brand foundation — to use for themselves or sell to first clients.</p>
+        <div class="tkt-price-wrap">
+          <div class="tkt-price-usd">$9 USD</div>
+          <div class="tkt-price-others">
+            <span class="tpo">5,000 FCFA</span>
+            <span class="tpo">₦12,500 NGN</span>
+            <span class="tpo">GH₵75</span>
+          </div>
+          <div class="tkt-mktval">Market value: $2,141 → your price: $9</div>
+        </div>
+        <div class="tkt-del-lbl">You build and own</div>
+        <ul class="tkt-list">
+          <li><span class="ck">✓</span><span class="hl">Scroll-stopping infographic — built live in Session 1</span></li>
+          <li><span class="ck">✓</span><span class="hl">AI voice system — writes in your voice forever</span></li>
+          <li><span class="ck">✓</span>Brand Identity Document package</li>
+          <li><span class="ck">✓</span>ICP + IFP templates</li>
+          <li><span class="ck">✓</span>Story Bank framework</li>
+          <li><span class="ck">✓</span>3 live sessions · 90 min each</li>
+          <li><span class="ck">✓</span>Lifetime session recordings</li>
+          <li><span class="ck">✓</span>Private founding community</li>
+          <li><span class="ck">✓</span>AI Quick-Start Brief™ bonus</li>
+        </ul>
+      </div>
+      <div class="tkt-perf">✂ — Your ticket to building — ✂</div>
+      <div class="tkt-cta-wrap">
+        <a class="tkt-cta" href="[SELAR-BUILDER-LINK]" target="_blank">Get Builder Ticket — $9 →</a>
+      </div>
+    </div>
+
+    <!-- TICKET 2 -->
+    <div class="tkt t2">
+      <div class="tkt-img-wrap">
+        <img class="tkt-img" src="ticket-t2.png" alt="Audience Engine Ticket"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="tkt-img-ph" style="display:none">
+          <span class="tiph-tier" style="color:var(--red)">🎟 Tier 2 · Architect</span>
+          <span class="tiph-name">Audience Engine™</span>
+        </div>
+      </div>
+      <div class="tkt-body">
+        <span class="tkt-eye">🎟 Architect Pass · Tier 2</span>
+        <div class="tkt-name">Audience Engine™</div>
+        <p class="tkt-for"><strong>Best for:</strong> people who want the full content and lead generation system — the skills to build and sell lead magnets, content systems, and email sequences to clients.</p>
+        <div class="tkt-price-wrap">
+          <div class="tkt-price-usd">$18 USD</div>
+          <div class="tkt-price-others">
+            <span class="tpo">10,000 FCFA</span>
+            <span class="tpo">₦25,000 NGN</span>
+            <span class="tpo">GH₵150</span>
+          </div>
+          <div class="tkt-mktval">Market value: $4,882 → your price: $18</div>
+        </div>
+        <div class="tkt-del-lbl">Everything in Builder, plus</div>
+        <ul class="tkt-list">
+          <li><span class="ck">✓</span><span class="hl">Lead magnet — formatted, gated, deployed this session</span></li>
+          <li><span class="ck">✓</span><span class="hl">Complete Content OS — 4 pillars, 30-day hook plan</span></li>
+          <li><span class="ck">✓</span><span class="hl">5-email nurture sequence — written, ready to send</span></li>
+          <li><span class="ck">✓</span>AI Prompt Library</li>
+          <li><span class="ck">✓</span>AI Infographics Template Pack</li>
+          <li><span class="ck">✓</span>AI Monetization Mini Guide</li>
+          <li><span class="ck">✓</span>7 live sessions total</li>
+          <li><span class="ck">✓</span>Private Q&amp;A support throughout</li>
+        </ul>
+      </div>
+      <div class="tkt-perf">✂ — Most popular · Sellable skill set — ✂</div>
+      <div class="tkt-cta-wrap">
+        <a class="tkt-cta" href="[SELAR-ARCHITECT-LINK]" target="_blank">Get Architect Ticket — $18 →</a>
+      </div>
+    </div>
+
+    <!-- TICKET 3 -->
+    <div class="tkt t3">
+      <div class="tkt-img-wrap">
+        <img class="tkt-img" src="ticket-t3.png" alt="Complete Business OS Ticket"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="tkt-img-ph" style="display:none">
+          <span class="tiph-tier" style="color:var(--gold2)">🎟 Tier 3 · Agency</span>
+          <span class="tiph-name">Complete Business OS™</span>
+        </div>
+      </div>
+      <div class="tkt-body">
+        <span class="tkt-eye">🎟 Agency Pass — Backstage · Tier 3</span>
+        <div class="tkt-name">Complete Business OS™</div>
+        <p class="tkt-for"><strong>Best for:</strong> people who want the complete AI service toolkit — able to offer the full business setup package to clients, commanding premium rates.</p>
+        <div class="tkt-price-wrap">
+          <div class="tkt-price-usd">$37 USD</div>
+          <div class="tkt-price-others">
+            <span class="tpo">20,000 FCFA</span>
+            <span class="tpo">₦54,900 NGN</span>
+            <span class="tpo">GH₵300</span>
+          </div>
+          <div class="tkt-mktval">Market value: $9,076 → your price: $37</div>
+        </div>
+        <div class="tkt-del-lbl">Everything in Architect, plus</div>
+        <ul class="tkt-list">
+          <li><span class="ck">✓</span><span class="hl">Live landing page — built, hosted, live before session ends</span></li>
+          <li><span class="ck">✓</span><span class="hl">1-on-1 strategy call with Brenda (60 min)</span></li>
+          <li><span class="ck">✓</span><span class="hl">Pre-Training Brand Blueprint Call (July 8–13)</span></li>
+          <li><span class="ck">✓</span>Premium client proposal documents</li>
+          <li><span class="ck">✓</span>Notion Business OS</li>
+          <li><span class="ck">✓</span>Monetizable AI service packages</li>
+          <li><span class="ck">✓</span>Done-for-you infographic + flyer</li>
+          <li><span class="ck">✓</span>Priority DM access — 30 days</li>
+          <li><span class="ck">✓</span>12 live sessions total</li>
+          <li><span class="ck">✓</span>Lifetime access to all future editions</li>
+        </ul>
+      </div>
+      <div class="tkt-perf">✂ — Backstage · Full AI service capability — ✂</div>
+      <div class="tkt-cta-wrap">
+        <a class="tkt-cta" href="[SELAR-AGENCY-LINK]" target="_blank">Get Agency Ticket — $37 →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Value table -->
+  <div class="vtable-wrap">
+    <table class="vt">
+      <thead>
+        <tr>
+          <th>What's included</th>
+          <th>Builder · $9</th>
+          <th>Architect · $18</th>
+          <th>Agency · $37</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Live sessions</td><td>3</td><td>7</td><td>12</td></tr>
+        <tr><td>AI voice system built</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Infographic — Session 1</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Lead magnet deployed</td><td>—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Content OS + email sequence</td><td>—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Live landing page</td><td>—</td><td>—</td><td class="yes">✓</td></tr>
+        <tr><td>Client proposal documents</td><td>—</td><td>—</td><td class="yes">✓</td></tr>
+        <tr><td>1-on-1 call with Brenda</td><td>—</td><td>—</td><td class="yes">✓</td></tr>
+        <tr><td>Monetizable AI service packages</td><td>—</td><td>—</td><td class="yes">✓</td></tr>
+        <tr><td>Lifetime future editions</td><td>—</td><td>—</td><td class="yes">✓</td></tr>
+        <tr class="hl"><td>Total market value</td><td class="c1">$2,141</td><td class="c2">$4,882</td><td class="c3">$9,076</td></tr>
+        <tr class="hl pr"><td>Your ticket</td><td class="c1">$9</td><td class="c2">$18</td><td class="c3">$37</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     BONUSES
+═══════════════════════════════════ -->
+<section class="bonuses wrap">
+  <div style="max-width:680px;margin:0 auto 4rem;text-align:center">
+    <div class="chip c">Included with every ticket</div>
+    <h2 class="h2-display" style="text-align:center">The bonuses stack on<br>top of <em>everything.</em></h2>
+    <div class="rule c"></div>
+  </div>
+
+  <div class="bonus-grid">
+    <div class="bcard">
+      <div class="bn-n">Bonus 01 · All tickets</div>
+      <div class="bn-title">The AI Quick-Start Brief™</div>
+      <div class="bn-val">Value: <s>$47</s> → <strong>Included free</strong></div>
+      <p class="bn-desc">The exact 12 AI tools Brenda uses daily — with the specific prompts for each. Not a generic list. The actual setup she uses to build everything in her business. Copy, paste, start using immediately. Your head start before July 16.</p>
+    </div>
+    <div class="bcard">
+      <div class="bn-n">Bonus 02 · All tickets</div>
+      <div class="bn-title">First Edition Circle™ Affiliate Access</div>
+      <div class="bn-val">Value: <s>Exclusive</s> → <strong>Included free</strong></div>
+      <p class="bn-desc">Your unique affiliate link earns 20% commission on every ticket sold. Leaderboard prizes for the top 3 (50K / 30K / 20K FCFA). Tier 3 Hunter Bonuses up to 50,000 FCFA. Up to 150,000 FCFA earning potential in 4 weeks.</p>
+      <span class="bn-ex">Up to 150,000 FCFA / $270 possible</span>
+    </div>
+    <div class="bcard">
+      <div class="bn-n">Bonus 03 · All tickets</div>
+      <div class="bn-title">Founding Member Private Channel</div>
+      <div class="bn-val">Value: <s>$97</s> → <strong>Included free</strong></div>
+      <p class="bn-desc">Private WhatsApp thread exclusively for first-edition ticket holders. Direct access to Brenda as she finalises each session. First access to every announcement and addition. The insiders' room before training starts.</p>
+    </div>
+    <div class="bcard">
+      <div class="bn-n">Bonus 04 · Agency Pass only</div>
+      <div class="bn-title">Pre-Training Brand Blueprint Call</div>
+      <div class="bn-val">Value: <s>$150</s> → <strong>Included free</strong></div>
+      <p class="bn-desc">A private 30-minute call with Brenda between July 8–13 — before training starts. Map exactly which assets to prioritize for your specific business or service offering. You arrive at Session 1 with a plan and a purpose.</p>
+      <span class="bn-ex">Agency Pass Only</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     GUARANTEE
+═══════════════════════════════════ -->
+<section class="guarantee wrap">
+  <div class="guar-in">
+    <div class="guar-seal">
+      <div class="gsi">
+        <span class="gsi-top">The</span>
+        <span class="gsi-mid">Build</span>
+        <span class="gsi-bot">Guarantee</span>
+      </div>
+    </div>
+
+    <h2 class="h2-display" style="text-align:center">I work with you<br>until you <em>build it.</em></h2>
+    <div class="rule c"></div>
+
+    <div class="guar-box">
+      <div class="guar-title">The Build Guarantee</div>
+      <p class="guar-p">Show up to Session 1. Open your laptop. Follow the system alongside Brenda.</p>
+      <p class="guar-p"><strong>If you leave Session 1 without a complete, professional business asset built during the session — Brenda works with you directly until you have one.</strong></p>
+      <p class="guar-p">Not a refund. Not a policy. A real commitment: you will build something real in this training. If the session doesn't get you there, Brenda stays with you until it does.</p>
+      <p class="guar-p">This is possible because the system works. The 90-minute build is tested and tight. But if something doesn't land for you on the day — the support doesn't stop. You leave with the asset. That is the promise.</p>
+      <div class="guar-fine">You show up · You build · You leave with something real · That is the guarantee</div>
+    </div>
+
+    <a class="btn btn-red" href="#tickets" style="display:inline-flex;margin:0 auto">Get Your Ticket <span class="arr">→</span></a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     REFERRAL TEASER
+═══════════════════════════════════ -->
+<section class="referral wrap">
+  <div class="chip">The First Edition Circle™</div>
+  <div class="ref-cols">
+    <div>
+      <h2 class="h2-display">Your ticket can<br>pay for itself.<br>And then <em>some.</em></h2>
+      <div class="rule"></div>
+      <p class="body-lg">Every ticket holder gets a unique Selar affiliate link. 20% commission on every ticket sold through it — automatic, tracked, paid by Selar.</p>
+      <p class="body-md">Plus a leaderboard rewarding the top 3 affiliates by points. Plus a Tier 3 Hunter Bonus for specialists. Three income streams running simultaneously for 4 weeks.</p>
+      <div class="ref-perks">
+        <div class="rp"><span class="rp-icon">→</span><p class="rp-t"><strong>Sell 5 tickets of your tier</strong> and your ticket price is covered by commission alone. You attended for free.</p></div>
+        <div class="rp"><span class="rp-icon">→</span><p class="rp-t"><strong>Top 3 leaderboard prizes:</strong> 50,000 / 30,000 / 20,000 FCFA — paid at close of program July 16.</p></div>
+        <div class="rp"><span class="rp-icon">→</span><p class="rp-t"><strong>Tier 3 Hunter Bonus:</strong> up to 50,000 FCFA extra for Agency Pass specialists.</p></div>
+        <div class="rp"><span class="rp-icon">→</span><p class="rp-t"><strong>You don't have to buy a ticket to be an affiliate.</strong> Just know people who should attend.</p></div>
+      </div>
+      <a class="btn btn-ghost" href="[REFERRAL-PAGE-LINK]" target="_blank" style="display:inline-flex;margin-top:2rem">See Full Program Details <span class="arr">→</span></a>
+    </div>
+    <div style="text-align:center">
+      <span class="ref-big">150K</span>
+      <span class="ref-unit">FCFA possible · ≈ $270 USD</span>
+      <span class="ref-sub">≈ ₦435,000 NGN · ≈ GH₵4,000</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     URGENCY
+═══════════════════════════════════ -->
+<section class="urgency wrap">
+  <div class="urg-in">
+    <div class="chip r">Real numbers. Real deadline.</div>
+    <h2 class="h2-display">150 tickets.<br>Three tiers.<br><em>Hard caps.</em></h2>
+    <div class="rule"></div>
+
+    <div class="urg-spots">
+      <div class="us">
+        <span class="us-name">Foundation Build</span>
+        <span class="us-n u1" id="s1">70</span>
+        <span class="us-sub">tickets · $9 · 5,000 FCFA</span>
+      </div>
+      <div class="us">
+        <span class="us-name">Audience Engine</span>
+        <span class="us-n u2" id="s2">50</span>
+        <span class="us-sub">tickets · $18 · 10,000 FCFA</span>
+      </div>
+      <div class="us">
+        <span class="us-name">Complete Business OS</span>
+        <span class="us-n u3" id="s3">30</span>
+        <span class="us-sub">tickets · $37 · 20,000 FCFA</span>
+      </div>
+    </div>
+
+    <p class="body-lg"><strong>These caps are not marketing.</strong> The event is live. Brenda is in the room for every session. Live implementation only functions at the scale where she can actively support every person building. When spots fill — they fill. No waitlist. No next round at this price.</p>
+    <p class="body-md">This is First Edition pricing. When this event runs again, it will not be $9/$18/$37. The proof will exist. The case studies will exist. The price will reflect that. The founding rate exists once.</p>
+
+    <a class="btn btn-red" href="#tickets" style="display:inline-flex;margin-top:2rem">Secure My Ticket Now <span class="arr">→</span></a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     FAQ
+═══════════════════════════════════ -->
+<section class="faq wrap">
+  <div class="faq-in">
+    <div class="chip c">Every objection. Answered.</div>
+    <h2 class="h2-display" style="text-align:center">Everything between<br>you and <em>the decision.</em></h2>
+    <div class="rule c"></div>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="faq(0)" aria-expanded="false">
+          <span>Do I need to know anything about AI or design to attend?</span>
+          <span class="faq-ico"><span class="faq-plus">+</span></span>
+        </button>
+        <div class="faq-ans"><div class="faq-ans-in">Zero prior knowledge needed. No coding. No design background. No AI experience. Everything is done live, step by step, with you building alongside Brenda. The only requirement: you can open a laptop and follow instructions. That's it.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="faq(1)" aria-expanded="false">
+          <span>Can I actually sell these skills after the training?</span>
+          <span class="faq-ico"><span class="faq-plus">+</span></span>
+        </button>
+        <div class="faq-ans"><div class="faq-ans-in">Yes. The market pays for exactly what you'll learn to build. Infographics: $50–150 per piece. Landing pages: $150–500 per page. Lead magnets: $150–400 per project. Brand asset packages: $200–800.<br><br>The training doesn't package these as services for you — that part is your business. But after the training you will know how to build all of them, at professional quality, using free AI tools. What you charge for that skill is up to you.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="faq(2)" aria-expanded="false">
+          <span>What exactly is the Build Guarantee?</span>
+          <span class="faq-ico"><span class="faq-plus">+</span></span>
+        </button>
+        <div class="faq-ans"><div class="faq-ans-in">Show up to Session 1. Build alongside Brenda. If you don't leave with a complete, professional business asset built during the session — Brenda works with you directly until you do. <strong>Not a refund. A guarantee that you will build something real.</strong><br><br>This is possible because the 90-minute build process is tested and tight. But if something doesn't land on the day — the support doesn't stop at the end of the call. You get the asset. That is the commitment.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="faq(3)" aria-expanded="false">
+          <span>What AI tools are used? Do I need to pay for them?</span>
+          <span class="faq-ico"><span class="faq-plus">+</span></span>
+        </button>
+        <div class="faq-ans"><div class="faq-ans-in">Everything uses free tools that actually work — ChatGPT free tier, Claude free tier, DeepSeek free. Not the kind of "free" that locks you out after three days. Brenda has run her entire business on these free tiers for 2 years. Total monthly AI tool cost: $0.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="faq(4)" aria-expanded="false">
+          <span>What's the difference between the three tiers?</span>
+          <span class="faq-ico"><span class="faq-plus">+</span></span>
+        </button>
+        <div class="faq-ans"><div class="faq-ans-in">Depth and breadth — not quality. Every tier delivers real, finished, professional assets.<br><br><strong>Foundation Build ($9):</strong> 3 sessions. Core skills — infographic, AI voice system, brand foundation. Enough to start offering services or upgrading your own business presence.<br><br><strong>Audience Engine ($18):</strong> 7 sessions. Adds lead magnet deployed, Content OS, email sequence, prompt library. Full content and audience-building skill set.<br><br><strong>Complete Business OS ($37):</strong> 12 sessions. Everything above plus landing page, client documents, Notion OS, monetizable AI service packages, 1-on-1 call with Brenda. The full stack.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="faq(5)" aria-expanded="false">
+          <span>What if I miss a live session?</span>
+          <span class="faq-ico"><span class="faq-plus">+</span></span>
+        </button>
+        <div class="faq-ans"><div class="faq-ans-in">All sessions are recorded and delivered within 24 hours. Lifetime access. You build the asset from the recording if you miss the live session. Show up live wherever you can — live is where real-time implementation and questions happen. But missing a session doesn't mean losing the content.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="faq(6)" aria-expanded="false">
+          <span>This is the first edition. No testimonials. Why should I trust it?</span>
+          <span class="faq-ico"><span class="faq-plus">+</span></span>
+        </button>
+        <div class="faq-ans"><div class="faq-ans-in">Because Brenda is the testimonial. Everything taught in this event was built first in her own business — and is running right now. The AI voice system, the infographic process, the landing page workflow, the content OS — all live and operational.<br><br>First edition doesn't mean unproven. It means you're getting founding prices before proof accumulates and prices adjust. And the Build Guarantee removes all risk — Brenda works with you until you build the asset.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="faq(7)" aria-expanded="false">
+          <span>Is this only for people in Africa?</span>
+          <span class="faq-ico"><span class="faq-plus">+</span></span>
+        </button>
+        <div class="faq-ans"><div class="faq-ans-in">Open to anyone, anywhere. The pricing reflects African market accessibility — which makes it unusually affordable globally. The tools, systems, and frameworks work regardless of location. The training was designed with the African market in mind but the skills are universal.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="faq(8)" aria-expanded="false">
+          <span>I have a specific question not answered here.</span>
+          <span class="faq-ico"><span class="faq-plus">+</span></span>
+        </button>
+        <div class="faq-ans"><div class="faq-ans-in">DM Brenda directly on WhatsApp. No bot. No wait. She responds personally.<br><br>
+          <a href="https://wa.me/237672411155" target="_blank" class="faq-wa">Message Brenda on WhatsApp →</a>
+        </div></div>
+      </div>
+
+    </div>
+    <div style="text-align:center;margin-top:3.5rem">
+      <a class="btn btn-red" href="#tickets">Objections handled. Get My Ticket <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     FINAL CTA
+═══════════════════════════════════ -->
+<section class="final" id="final">
+  <div class="final-in">
+    <div class="final-over">Still here? The decision is already made.</div>
+    <h2 class="final-h">
+      Learn it.<br>
+      Build it.<br>
+      <em>Sell it.</em>
+    </h2>
+    <div class="rule c"></div>
+    <p class="body-lg" style="max-width:540px;margin:0 auto 1rem">You've read the page. You know what's inside. You know what the Build Guarantee says. One ticket. One live event. Skills that pay for themselves the first time you sell them.</p>
+    <p class="body-md" style="max-width:540px;margin:0 auto 3rem">Three tickets. Starting at $9. Enrollment closes July 16.</p>
+
+    <div class="final-tix">
+      <div class="ft ft1">
+        <span class="ft-n">Foundation Build</span>
+        <span class="ft-p">$9</span>
+        <span class="ft-s">5,000 FCFA · 70 tickets · 3 sessions</span>
+        <a class="ft-btn" href="[SELAR-BUILDER-LINK]" target="_blank">Get Ticket →</a>
+      </div>
+      <div class="ft ft2">
+        <span class="ft-n">Audience Engine</span>
+        <span class="ft-p">$18</span>
+        <span class="ft-s">10,000 FCFA · 50 tickets · 7 sessions</span>
+        <a class="ft-btn" href="[SELAR-ARCHITECT-LINK]" target="_blank">Get Ticket →</a>
+      </div>
+      <div class="ft ft3">
+        <span class="ft-n">Complete Business OS</span>
+        <span class="ft-p">$37</span>
+        <span class="ft-s">20,000 FCFA · 30 tickets · 12 sessions</span>
+        <a class="ft-btn" href="[SELAR-AGENCY-LINK]" target="_blank">Get Ticket →</a>
+      </div>
+    </div>
+
+    <a class="btn btn-red" href="#tickets" style="display:inline-flex;font-size:.68rem;padding:22px 54px">
+      Get Your Ticket Now <span class="arr">→</span>
+    </a>
+
+    <div class="final-note">
+      Enrollment closes July 16 when Session 1 begins · 150 total tickets · First Edition pricing never repeats<br>
+      The Build Guarantee: Brenda works with you until you build it
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-brand">Brenda Blanche™ · The Unapologetics · Unapologetically YOU™</div>
+  <div class="footer-note">AI Solopreneur Toolkit™ · First Edition · © 2026</div>
+</footer>
+
+<script>
+(function tick(){
+  var t=new Date('2026-07-16T09:00:00').getTime()-Date.now();
+  if(t<0)t=0;
+  function p(n){return String(Math.floor(n)).padStart(2,'0');}
+  document.getElementById('cd-d').textContent=p(t/864e5);
+  document.getElementById('cd-h').textContent=p((t%864e5)/36e5);
+  document.getElementById('cd-m').textContent=p((t%36e5)/6e4);
+  document.getElementById('cd-s').textContent=p((t%6e4)/1e3);
+  setTimeout(tick,1000);
+})();
+
+window.addEventListener('scroll',function(){
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>80);
+},{passive:true});
+
+function faq(i){
+  document.querySelectorAll('.faq-item').forEach(function(el,idx){
+    var btn=el.querySelector('.faq-btn'),ans=el.querySelector('.faq-ans');
+    if(idx===i){var o=ans.classList.contains('open');ans.classList.toggle('open',!o);btn.setAttribute('aria-expanded',String(!o));}
+    else{ans.classList.remove('open');btn.setAttribute('aria-expanded','false');}
+  });
+}
+
+function updateSpots(t1,t2,t3){
+  document.getElementById('s1').textContent=t1;
+  document.getElementById('s2').textContent=t2;
+  document.getElementById('s3').textContent=t3;
+}
+</script>
+</body>
+</html>
